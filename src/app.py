@@ -36,6 +36,7 @@ def load_model_from_mlflow():
         model_uri = f"models:/{model_name}/{latest_version}"
         
         # Load model
+        print("loadint the model ")
         model = mlflow.sklearn.load_model(model_uri)
         model_version = latest_version
         
