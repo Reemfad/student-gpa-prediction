@@ -1,0 +1,37 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+env/
+
+# Data
+data/
+
+# Notebooks
+notebooks/
+*.ipynb
+
+# DVC
+.dvc/cache
+.dvc/tmp
+
+# IDE
+.vscode/
+.idea/
+
+# Tests
+tests/
+
+# Documentation
+README.md
+*.md
+
+# CI/CD
+.github/
