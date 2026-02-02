@@ -61,7 +61,8 @@ def initialize():
     if load_model_from_mlflow():
         print("✅ ML Container ready!")
     else:
-        print("⚠️ ML Container started but model loading failed")
+        print("⚠️ ML Container started but model loading failed consider retrying later ")
+        print("retry later")
 initialize()
 
 @app.route('/health', methods=['GET'])
