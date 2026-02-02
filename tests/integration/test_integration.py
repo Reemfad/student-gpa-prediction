@@ -14,10 +14,7 @@ from src.preprocessing import FeaturePreprocessor
 
 def test_model_loading_from_mlflow():
     """Test that model can be loaded from MLflow registry"""
-    dagshub.auth.add_token(
-    os.environ["DAGSHUB_TOKEN"],
-    host="https://dagshub.com"
-    )
+    
     dagshub.init(
     repo_owner="reemfad51",
     repo_name="student-gpa-prediction",
@@ -46,10 +43,7 @@ def test_model_loading_from_mlflow():
 
 def test_preprocessing_and_prediction_pipeline():
     """Test complete pipeline: preprocess → predict"""
-    dagshub.auth.add_token(
-    os.environ["DAGSHUB_TOKEN"],
-    host="https://dagshub.com"
-    )
+    
     dagshub.init(
     repo_owner="reemfad51",
     repo_name="student-gpa-prediction",
