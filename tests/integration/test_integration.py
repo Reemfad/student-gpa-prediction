@@ -16,10 +16,11 @@ def test_model_loading_from_mlflow():
     """Test that model can be loaded from MLflow registry"""
     
     # Initialize DagsHub
-    dagshub.init(repo_owner='reemfad51', 
-                 repo_name='student-gpa-prediction', 
-                 mlflow=True)
-    
+    # dagshub.init(repo_owner='reemfad51', 
+    #              repo_name='student-gpa-prediction', 
+    #              mlflow=True)
+    mlflow.set_tracking_uri(os.getenv('MLFLOW_TRACKING_URI'))
+    print("all is safe")
     try:
         # Attempt to load model
         client = mlflow.tracking.MlflowClient()
@@ -44,18 +45,20 @@ def test_preprocessing_and_prediction_pipeline():
     """Test complete pipeline: preprocess → predict"""
     
     # Initialize DagsHub
-    dagshub.init(repo_owner='reemfad51', 
-                 repo_name='student-gpa-prediction', 
-                 mlflow=True)
-    
+    # dagshub.init(repo_owner='reemfad51', 
+    #              repo_name='student-gpa-prediction', 
+    #              mlflow=True)
+    mlflow.set_tracking_uri(os.getenv('MLFLOW_TRACKING_URI'))
     # Load preprocessor
     preprocessor = FeaturePreprocessor('models/label_encoders.pkl')
     
     # Load model
     client = mlflow.tracking.MlflowClient()
     model_name = "gpa_predictor"
-    latest_versions = client.get_latest_versions(model_name, stages=["None"])
-    latest_version = latest_versions[0].version
+    print("here the error happens")
+    versions = client.search_model_versions(f"name='{model_name}'")
+    latest_version = max([int(v.version) for v in versions])
+
     model_uri = f"models:/{model_name}/{latest_version}"
     model = mlflow.sklearn.load_model(model_uri)
     
