@@ -12,3 +12,4 @@ seaborn
 matplotlib
 # https://github.com/Reemfad/student-gpa-prediction
 flask
+pytest
