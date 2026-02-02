@@ -1,6 +1,6 @@
 pandas
 numpy
-scikit-learn
+scikit-learn==1.4.0
 mlflow
 dvc
 dvc[gdrive]==3.38.1
