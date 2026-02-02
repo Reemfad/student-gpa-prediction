@@ -60,6 +60,7 @@ def initialize():
     # Load model
     if load_model_from_mlflow():
         print("✅ ML Container ready!")
+        print("ml container successful")
     else:
         print("⚠️ ML Container started but model loading failed")
 initialize()
