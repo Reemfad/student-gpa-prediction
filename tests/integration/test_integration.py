@@ -49,10 +49,15 @@ def test_preprocessing_and_prediction_pipeline():
     """Test complete pipeline: preprocess → predict"""
     
     # Initialize DagsHub
-    dagshub.init(repo_owner='reemfad51', 
-                 repo_name='student-gpa-prediction', 
-                 mlflow=True)
-    
+    # dagshub.init(repo_owner='reemfad51', 
+    #              repo_name='student-gpa-prediction', 
+    #              mlflow=True)
+    dagshub.init(
+    repo_owner="reemfad51",
+    repo_name="student-gpa-prediction",
+    mlflow=True,
+    oauth=False
+)
     # Load preprocessor
     preprocessor = FeaturePreprocessor('models/label_encoders.pkl')
     
