@@ -16,10 +16,15 @@ def test_model_loading_from_mlflow():
     """Test that model can be loaded from MLflow registry"""
     
     # Initialize DagsHub
-    dagshub.init(repo_owner='reemfad51', 
-                 repo_name='student-gpa-prediction', 
-                 mlflow=True)
-    
+    # dagshub.init(repo_owner='reemfad51', 
+    #              repo_name='student-gpa-prediction', 
+    #              mlflow=True)
+    dagshub.init(
+    repo_owner="reemfad51",
+    repo_name="student-gpa-prediction",
+    mlflow=True,
+    oauth=False
+)
     try:
         # Attempt to load model
         client = mlflow.tracking.MlflowClient()
