@@ -64,6 +64,7 @@ def initialize():
         print("⚠️ ML Container started but model loading failed consider retrying later ")
         print("retry later")
         print("or retry now ")
+        print("or never retry")
 initialize()
 
 @app.route('/health', methods=['GET'])
