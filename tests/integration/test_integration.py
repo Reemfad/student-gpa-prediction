@@ -14,17 +14,16 @@ from src.preprocessing import FeaturePreprocessor
 
 def test_model_loading_from_mlflow():
     """Test that model can be loaded from MLflow registry"""
-    
-    # Initialize DagsHub
-    # dagshub.init(repo_owner='reemfad51', 
-    #              repo_name='student-gpa-prediction', 
-    #              mlflow=True)
+    dagshub.auth.add_token(
+    os.environ["DAGSHUB_TOKEN"],
+    host="https://dagshub.com"
+    )
     dagshub.init(
     repo_owner="reemfad51",
     repo_name="student-gpa-prediction",
     mlflow=True,
-    oauth=False
-)
+    
+    )
     try:
         # Attempt to load model
         client = mlflow.tracking.MlflowClient()
@@ -47,17 +46,16 @@ def test_model_loading_from_mlflow():
 
 def test_preprocessing_and_prediction_pipeline():
     """Test complete pipeline: preprocess → predict"""
-    
-    # Initialize DagsHub
-    # dagshub.init(repo_owner='reemfad51', 
-    #              repo_name='student-gpa-prediction', 
-    #              mlflow=True)
+    dagshub.auth.add_token(
+    os.environ["DAGSHUB_TOKEN"],
+    host="https://dagshub.com"
+    )
     dagshub.init(
     repo_owner="reemfad51",
     repo_name="student-gpa-prediction",
     mlflow=True,
-    oauth=False
-)
+    
+    )
     # Load preprocessor
     preprocessor = FeaturePreprocessor('models/label_encoders.pkl')
     
