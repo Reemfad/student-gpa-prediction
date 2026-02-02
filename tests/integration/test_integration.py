@@ -55,9 +55,7 @@ def test_preprocessing_and_prediction_pipeline():
     # Load model
     client = mlflow.tracking.MlflowClient()
     model_name = "gpa_predictor"
-    # latest_versions = client.get_latest_versions(model_name, stages=["None"])
-    # latest_version = latest_versions[0].version
-    # model_uri = f"models:/{model_name}/{latest_version}"
+    print("here the error happens")
     versions = client.search_model_versions(f"name='{model_name}'")
     latest_version = max([int(v.version) for v in versions])
 
