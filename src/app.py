@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 import mlflow
 import dagshub
 import numpy as np
-from src.preprocessing import FeaturePreprocessor
+from preprocessing import FeaturePreprocessor
 import os
 
 app = Flask(__name__)
@@ -63,6 +63,7 @@ def initialize():
         print("✅ ML Container ready!")
     else:
         print("⚠️ ML Container started but model loading failed")
+        print("please try again")
 initialize()
 
 @app.route('/health', methods=['GET'])
