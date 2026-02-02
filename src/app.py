@@ -8,10 +8,11 @@ import os
 app = Flask(__name__)
 
 # Initialize DagsHub
-dagshub.init(repo_owner='reemfad51', 
-             repo_name='student-gpa-prediction', 
-             mlflow=True)
-
+# dagshub.init(repo_owner='reemfad51', 
+#              repo_name='student-gpa-prediction', 
+#              mlflow=True)
+mlflow.set_tracking_uri(os.getenv('MLFLOW_TRACKING_URI'))
+print("this is my change")
 # Global variables
 model = None
 preprocessor = None
@@ -62,7 +63,6 @@ def initialize():
     # Load model
     if load_model_from_mlflow():
         print("✅ ML Container ready!")
-        print("ml container successful")
     else:
         print("⚠️ ML Container started but model loading failed")
 initialize()
