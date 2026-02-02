@@ -10,7 +10,7 @@ import dagshub
 # Add src to path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
-from preprocessing import FeaturePreprocessor
+from src.preprocessing import FeaturePreprocessor
 
 def test_model_loading_from_mlflow():
     """Test that model can be loaded from MLflow registry"""
