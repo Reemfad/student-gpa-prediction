@@ -8,19 +8,10 @@ import os
 app = Flask(__name__)
 
 # Initialize DagsHub
-# dagshub.init(repo_owner='reemfad51', 
-#              repo_name='student-gpa-prediction', 
-#              mlflow=True)
-dagshub.auth.add_token(
-    os.environ["DAGSHUB_TOKEN"],
-    host="https://dagshub.com"
-)
-dagshub.init(
-    repo_owner="reemfad51",
-    repo_name="student-gpa-prediction",
-    mlflow=True,
-    # oauth=False
-)
+dagshub.init(repo_owner='reemfad51', 
+             repo_name='student-gpa-prediction', 
+             mlflow=True)
+print("inititalization successful")
 # Global variables
 model = None
 preprocessor = None
