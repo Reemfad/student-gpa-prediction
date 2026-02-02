@@ -57,6 +57,7 @@ def initialize():
     preprocessor = FeaturePreprocessor('models/label_encoders.pkl')
     print("✅ Preprocessor loaded")
     print("and all is successful")
+    print("ready to load the model")
     
     # Load model
     if load_model_from_mlflow():
