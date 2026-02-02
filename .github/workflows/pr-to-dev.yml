@@ -26,5 +26,7 @@ jobs:
       - name: Run Integration Tests
         env:
           PYTHONPATH: .
+          DAGSHUB_USER: ${{ secrets.DAGSHUB_USER }}
+          DAGSHUB_TOKEN: ${{ secrets.DAGSHUB_TOKEN }}
         run: |
           pytest tests/integration/test_integration.py -v
