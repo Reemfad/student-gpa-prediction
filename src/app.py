@@ -2,17 +2,18 @@ from flask import Flask, request, jsonify
 import mlflow
 import dagshub
 import numpy as np
-from src.preprocessing import FeaturePreprocessor
+from preprocessing import FeaturePreprocessor
 import os
 
 app = Flask(__name__)
 
 # Initialize DagsHub
-# dagshub.init(repo_owner='reemfad51', 
-#              repo_name='student-gpa-prediction', 
-#              mlflow=True)
-mlflow.set_tracking_uri(os.getenv('MLFLOW_TRACKING_URI'))
-print("trying staing to production")
+# gpa_predictor
+dagshub.init(repo_owner='reemfad51', 
+             repo_name='student-gpa-prediction', 
+             mlflow=True)
+# mlflow.set_tracking_uri(os.getenv('MLFLOW_TRACKING_URI'))
+
 # Global variables
 model = None
 preprocessor = None
@@ -130,14 +131,3 @@ def root():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=False)
-# ```
-
-# ---
-
-## Update Requirements
-
-### File: `requirements.txt`
-
-# **Add these to your existing requirements:**
-# ```
-# flask==3.0.0
