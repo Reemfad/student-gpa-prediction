@@ -8,7 +8,7 @@ import os
 app = Flask(__name__)
 
 # Initialize DagsHub
-# gpa_predictor
+# gpa_predictorP
 dagshub.init(repo_owner='reemfad51', 
              repo_name='student-gpa-prediction', 
              mlflow=True)
