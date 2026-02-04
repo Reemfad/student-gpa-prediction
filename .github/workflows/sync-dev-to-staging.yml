@@ -1,3 +1,66 @@
+# name: Sync Dev to Staging
+
+# on:
+#   push:
+#     branches:
+#       - dev
+
+# jobs:
+#   sync-branches:
+#     runs-on: ubuntu-latest
+#     permissions:
+#       contents: write
+    
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v4
+#         with:
+#           fetch-depth: 0  # Fetch all history for all branches
+      
+#       - name: Push to Staging
+#         run: |
+#           git config --global user.name "GitHub Actions"
+#           git config --global user.email "actions@github.com"
+          
+#           # Force push dev content to staging branch
+#           git checkout staging || git checkout -b staging
+#           git reset --hard origin/dev
+#           git push origin staging --force
+#   name: Sync Dev to Staging
+
+# on:
+#   push:
+#     branches:
+#       - dev
+
+# jobs:
+#   sync-branches:
+#     runs-on: ubuntu-latest
+#     permissions:
+#       contents: write
+    
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v4
+#         with:
+#           fetch-depth: 0  # Fetch all history for all branches
+      
+#       - name: Push to Staging
+#         run: |
+#           git config --global user.name "GitHub Actions"
+#           git config --global user.email "actions@github.com"
+          
+#           # Force push dev content to staging branch
+#           git checkout staging || git checkout -b staging
+#           git reset --hard origin/dev
+#           git push origin staging --force
+
+# trigger-production:
+#     needs: sync-branches
+#     uses: ./.github/workflows/staging-to-production.yml
+#     permissions:
+#       contents: write
+#     secrets: inherit
 name: Sync Dev to Staging
 
 on:
@@ -26,36 +89,8 @@ jobs:
           git checkout staging || git checkout -b staging
           git reset --hard origin/dev
           git push origin staging --force
-  name: Sync Dev to Staging
 
-on:
-  push:
-    branches:
-      - dev
-
-jobs:
-  sync-branches:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0  # Fetch all history for all branches
-      
-      - name: Push to Staging
-        run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-          
-          # Force push dev content to staging branch
-          git checkout staging || git checkout -b staging
-          git reset --hard origin/dev
-          git push origin staging --force
-
-trigger-production:
+  trigger-production:
     needs: sync-branches
     uses: ./.github/workflows/staging-to-production.yml
     permissions:
