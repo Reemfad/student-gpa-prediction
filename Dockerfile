@@ -16,4 +16,4 @@ EXPOSE 5000
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONPATH=/app
 # Use Gunicorn for production
-CMD ["gunicorn", "--bind", "0.0.0.0:$PORT", "--workers", "2", "src.app:app"]
+CMD ["sh", "-c", "gunicorn --bind 0.0.0.0:${PORT} --workers 2 src.app:app"]
