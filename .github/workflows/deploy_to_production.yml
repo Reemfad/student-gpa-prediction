@@ -65,12 +65,19 @@ jobs:
       #     railway up --service gpa-predictor
       #   env:
       #     RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+      # - name: Deploy to Railway
+      #   env:
+      #     RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+      #   run: |
+      #     npm install -g @railway/cli
+      #     railway login --token $RAILWAY_TOKEN
+      #     railway up --service gpa-predictor
       - name: Deploy to Railway
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
         run: |
           npm install -g @railway/cli
-          railway login --token $RAILWAY_TOKEN
+          railway login  # uses token automatically from env
           railway up --service gpa-predictor
 
 # activate
