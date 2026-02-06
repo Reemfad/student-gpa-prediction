@@ -13,7 +13,7 @@ dagshub.init(repo_owner='reemfad51',
              repo_name='student-gpa-prediction', 
              mlflow=True)
 # mlflow.set_tracking_uri(os.getenv('MLFLOW_TRACKING_URI'))
-
+print("initialization error is fixed")
 # Global variables
 model = None
 preprocessor = None
