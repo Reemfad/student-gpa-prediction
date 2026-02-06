@@ -14,6 +14,6 @@ COPY models/ ./models/
 EXPOSE 5000
 
 ENV PYTHONUNBUFFERED=1
-
+ENV PYTHONPATH=/app
 # Use Gunicorn for production
 CMD ["gunicorn", "--bind", "0.0.0.0:5000", "--workers", "2", "src.app:app"]
