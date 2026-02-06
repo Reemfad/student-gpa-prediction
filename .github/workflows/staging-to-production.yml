@@ -48,3 +48,10 @@ jobs:
           git checkout main || git checkout -b main
           git reset --hard origin/staging
           git push origin main --force
+
+  trigger-deployment:
+    needs: validate-and-deploy
+    uses: ./.github/workflows/deploy-production.yml
+    permissions:
+      contents: write
+    secrets: inherit       
