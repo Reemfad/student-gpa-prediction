@@ -2,17 +2,17 @@ from flask import Flask, request, jsonify
 import mlflow
 import dagshub
 import numpy as np
-from src.preprocessing import FeaturePreprocessor
+from preprocessing import FeaturePreprocessor
 import os
 
 app = Flask(__name__)
 
 # Initialize DagsHub
 # gpa_predictorP
-# dagshub.init(repo_owner='reemfad51', 
-#              repo_name='student-gpa-prediction', 
-#              mlflow=True)
-mlflow.set_tracking_uri(os.getenv('MLFLOW_TRACKING_URI'))
+dagshub.init(repo_owner='reemfad51', 
+             repo_name='student-gpa-prediction', 
+             mlflow=True)
+# mlflow.set_tracking_uri(os.getenv('MLFLOW_TRACKING_URI'))
 print("here is where i performed a change")
 # Global variables
 model = None
