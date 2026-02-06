@@ -12,8 +12,12 @@ app = Flask(__name__)
 # dagshub.init(repo_owner='reemfad51', 
 #              repo_name='student-gpa-prediction', 
 #              mlflow=True)
-mlflow.set_tracking_uri(os.getenv('MLFLOW_TRACKING_URI'))
-print("connect railway")
+# mlflow.set_tracking_uri(os.getenv('MLFLOW_TRACKING_URI'))
+from src.mlflow_config import setup_mlflow
+
+setup_mlflow()
+print("here is where i performed a change")
+
 # Global variables
 model = None
 preprocessor = None
