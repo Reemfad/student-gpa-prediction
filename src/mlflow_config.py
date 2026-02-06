@@ -10,8 +10,11 @@ def setup_mlflow():
         mlflow.set_tracking_uri(tracking_uri)
     else:
         # Railway production (DAGsHub)
-        dagshub.init(
-            repo_owner=os.getenv("reemfad51"),
-            repo_name=os.getenv("student-gpa-prediction"),
-            mlflow=True
-        )
+        # dagshub.init(
+        #     repo_owner=os.getenv("reemfad51"),
+        #     repo_name=os.getenv("student-gpa-prediction"),
+        #     mlflow=True
+        # )
+        dagshub.init(repo_owner='reemfad51', 
+             repo_name='student-gpa-prediction', 
+             mlflow=True)
