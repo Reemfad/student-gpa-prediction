@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - main
+# on:
+#   workflow_call:
+#   push:
+#     branches:
+#       - staging
 
 permissions:
   contents: write
