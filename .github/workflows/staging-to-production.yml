@@ -1,3 +1,54 @@
+# name: Staging to Production
+
+# on:
+#   workflow_call:
+#   push:
+#     branches:
+#       - staging
+
+# permissions:
+#   contents: write
+
+# jobs:
+#   validate-and-deploy:
+#     runs-on: ubuntu-latest
+    
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v4
+#         with:
+#           fetch-depth: 0
+      
+#       - name: Set up Python
+#         uses: actions/setup-python@v5
+#         with:
+#           python-version: '3.10'
+      
+#       - name: Install dependencies
+#         run: |
+#           python -m pip install --upgrade pip
+#           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      
+#       - name: Run All Tests
+#         env:
+#           PYTHONPATH: .
+#           MLFLOW_TRACKING_USERNAME: ${{ secrets.DAGSHUB_USER }}
+#           MLFLOW_TRACKING_PASSWORD: ${{ secrets.DAGSHUB_TOKEN }}
+#           MLFLOW_TRACKING_URI: https://dagshub.com/reemfad51/student-gpa-prediction.mlflow
+#         run: |
+#           pytest tests/unit/test_units.py tests/integration/test_integration.py tests/e2e/test_e2e.py -v
+      
+#       - name: Push to Production (Main)
+#         if: success()  # Only runs if tests pass
+#         run: |
+#           git config --global user.name "GitHub Actions"
+#           git config --global user.email "actions@github.com"
+          
+#           # Merge staging into main
+#           git checkout main || git checkout -b main
+#           git reset --hard origin/staging
+#           git push origin main --force
+
 name: Staging to Production
 
 on:
@@ -39,19 +90,18 @@ jobs:
           pytest tests/unit/test_units.py tests/integration/test_integration.py tests/e2e/test_e2e.py -v
       
       - name: Push to Production (Main)
-        if: success()  # Only runs if tests pass
+        if: success()
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
           
-          # Merge staging into main
           git checkout main || git checkout -b main
           git reset --hard origin/staging
           git push origin main --force
-
+  
   trigger-deployment:
     needs: validate-and-deploy
     uses: ./.github/workflows/deploy-production.yml
     permissions:
       contents: write
-    secrets: inherit       
+    secrets: inherit
