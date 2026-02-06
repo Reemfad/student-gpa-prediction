@@ -13,9 +13,7 @@ app = Flask(__name__)
 #              repo_name='student-gpa-prediction', 
 #              mlflow=True)
 mlflow.set_tracking_uri(os.getenv('MLFLOW_TRACKING_URI'))
-print("initialization error is fixed")
-print("here is where it all is done")
-print("what should i do ")
+
 # Global variables
 model = None
 preprocessor = None
