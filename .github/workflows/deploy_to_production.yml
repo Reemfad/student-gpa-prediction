@@ -60,3 +60,5 @@ jobs:
           railway up --service gpa-predictor
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+
+# activate
