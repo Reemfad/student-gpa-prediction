@@ -11,7 +11,7 @@ def setup_mlflow():
     else:
         # Railway production (DAGsHub)
         dagshub.init(
-            repo_owner=os.getenv("DAGSHUB_REPO_OWNER"),
-            repo_name=os.getenv("DAGSHUB_REPO_NAME"),
+            repo_owner=os.getenv("reemfad51"),
+            repo_name=os.getenv("student-gpa-prediction"),
             mlflow=True
         )
