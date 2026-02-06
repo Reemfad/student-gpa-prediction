@@ -1,15 +1,11 @@
 name: Deploy to Production
 
+
 on:
+  workflow_call:
   push:
     branches:
       - main
-# on:
-#   workflow_call:
-#   push:
-#     branches:
-#       - staging
-
 permissions:
   contents: write
 
@@ -58,12 +54,4 @@ jobs:
             ${{ secrets.DOCKERHUB_USERNAME }}/gpa-predictor:latest
             ${{ secrets.DOCKERHUB_USERNAME }}/gpa-predictor:${{ github.sha }}
       
-      - name: Deploy to Railway
-        run: |
-          npm install -g @railway/cli
-          railway link ${{ secrets.RAILWAY_TOKEN }}
-          railway up --service gpa-predictor
-        env:
-          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
-
-# activate
+    
