@@ -13,7 +13,7 @@ app = Flask(__name__)
 #              repo_name='student-gpa-prediction', 
 #              mlflow=True)
 mlflow.set_tracking_uri(os.getenv('MLFLOW_TRACKING_URI'))
-
+print("connect railway")
 # Global variables
 model = None
 preprocessor = None
