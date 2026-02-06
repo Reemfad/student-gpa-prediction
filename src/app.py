@@ -14,6 +14,7 @@ dagshub.init(repo_owner='reemfad51',
              mlflow=True)
 # mlflow.set_tracking_uri(os.getenv('MLFLOW_TRACKING_URI'))
 print("initialization error is fixed")
+print("here is where it all is done")
 # Global variables
 model = None
 preprocessor = None
