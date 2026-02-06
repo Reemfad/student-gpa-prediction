@@ -79,4 +79,3 @@ jobs:
           npm install -g @railway/cli
           railway up --service gpa-predictor
 
-# activate
