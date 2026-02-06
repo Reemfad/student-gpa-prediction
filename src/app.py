@@ -14,7 +14,7 @@ app = Flask(__name__)
 #              mlflow=True)
 # mlflow.set_tracking_uri(os.getenv('MLFLOW_TRACKING_URI'))
 from src.mlflow_config import setup_mlflow
-
+print("this is working")
 setup_mlflow()
 print("here is where i performed a change")
 
