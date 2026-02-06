@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 import mlflow
 import dagshub
 import numpy as np
-from preprocessing import FeaturePreprocessor
+from src.preprocessing import FeaturePreprocessor
 import os
 
 app = Flask(__name__)
