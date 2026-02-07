@@ -1,6 +1,6 @@
 # 🎓 Student GPA Prediction System - ML Microservice
 
-(C:\Users\96170\OneDrive - Lebanese University\MachingeLearning_DataScience_InProduction\student-gpa-prediction\Screenshot 2026-02-07 001845.png)
+
 
 ## 📋 Project Overview
 
