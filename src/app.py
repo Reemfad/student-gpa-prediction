@@ -9,13 +9,13 @@ app = Flask(__name__)
 
 # Initialize DagsHub
 # gpa_predictorP
-dagshub.init(repo_owner='reemfad51', 
-             repo_name='student-gpa-prediction', 
-             mlflow=True)
+# dagshub.init(repo_owner='reemfad51', 
+#              repo_name='student-gpa-prediction', 
+#              mlflow=True)
 # mlflow.set_tracking_uri(os.getenv('MLFLOW_TRACKING_URI'))
-# from src.mlflow_config import setup_mlflow
-
-# setup_mlflow()
+from src.mlflow_config import setup_mlflow
+print("this is working")
+setup_mlflow()
 print("here is where i performed a change")
 
 # Global variables

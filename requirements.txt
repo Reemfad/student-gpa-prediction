@@ -13,3 +13,4 @@ matplotlib
 # https://github.com/Reemfad/student-gpa-prediction
 flask
 pytest
+gunicorn==21.2.0

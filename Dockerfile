@@ -1,25 +1,19 @@
 FROM python:3.10-slim
 
-# Set working directory in container
 WORKDIR /app
 
-# Copy requirements file
 COPY requirements.txt .
-
-# Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy source code
-COPY src/ ./src/
+# Install production server
+RUN pip install gunicorn
 
-# Copy models directory (label encoders)
+COPY src/ ./src/
 COPY models/ ./models/
 
-# Expose port 5000
 EXPOSE 5000
 
-# Set environment variables
 ENV PYTHONUNBUFFERED=1
-
-# Run the Flask app
-CMD ["python", "src/app.py"]
+ENV PYTHONPATH=/app
+# Use Gunicorn for production
+CMD ["sh", "-c", "gunicorn --bind 0.0.0.0:${PORT} --workers 2 src.app:app"]
